@@ -1,5 +1,5 @@
 # Utiliza la imagen oficial de Rasa como base
-FROM rasa/rasa:3.1
+FROM python:3.10.11
 
 # Copia todo el contenido del directorio actual al contenedor
 COPY . /app
