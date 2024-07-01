@@ -1,0 +1,81 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hola
+    - buenas
+    - como estas?
+    - que tal
+    - hola aca
+    - hey como estas
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+
+
+- intent: agree
+  examples: |
+    - claro que si
+    - si
+    - por su puesto
+    - obviamente
+    - Claro
+    - vamos
+    - ejecutalo
+    - adelante
+    - por favor
+    - si, por favor
+
+- intent: disagree
+  examples: |
+    - claro que no
+    - no
+    - por su puesto que no
+    - obviamente no
+    - no lo hagas
+    - nunca
+    - no procedas
+    - no es necesario
+    - de ninguna manera
+
+- intent: tipo_gestion_educativa
+  examples: |
+    - Las [sesiones de aprendizaje](tipo_gestion) ya estan el drive?
+    - Las [unidades de aprendizaje](tipo_gestion) del curso [matematica](curso) ya estan el drive?
+    - ¿Puedes decirme si todos los profesores ya subieron sus [sesiones de aprendizaje](tipo_gestion)?
+    - Dime si ya se subieron todas las [sesiones de aprendizaje](tipo_gestion)
+    - [planificacion anual](tipo_gestion)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [comunicacion](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [ingles](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [ciencia y tecnologia](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [cyt](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [ciencias sociales](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [desarrollo personas ciudadania y civica](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [dpcc](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [educacion religiosa](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [religion](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [educacion para el trabajo](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [ept](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [arte y cultura](curso)
+    - [sesiones de aprendizaje](tipo_gestion) del curso de [educacion fisica](curso)
+    - Dime si ya se subieron todas las [sesiones de aprendizaje](tipo_gestion) del curso de [educacion fisica](curso)
+    - ¿Puedes decirme si todos los profesores ya subieron sus [sesiones de aprendizaje](tipo_gestion)? del curso de [educacion fisica](curso)
+
+
+- synonym: ciencia y tecnologia
+  examples: |
+    - CyT
+
+- synonym: religion
+  examples: |
+    - educacion religiosa
+
+- synonym: educacion para el trabajo
+  examples: |
+    - ept
+
+- synonym: desarrollo personas ciudadania y civica
+  examples: |
+    - dpcc

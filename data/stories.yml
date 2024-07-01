@@ -1,0 +1,73 @@
+version: "3.1"
+
+stories:
+
+- story: Mostrar docentes de todos los cursos y enviar correos
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tipo_gestion_educativa
+    entities:
+    - tipo_gestion: "sesiones de aprendizaje"
+  - action: action_revisar_gestion_educativa
+  - action: utter_consultar
+  - intent: agree
+  - action: action_enviar_correos
+
+
+- story: Mostrar docentes de todos los cursos y no enviar correos
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tipo_gestion_educativa
+    entities:
+    - tipo_gestion: "sesiones de aprendizaje"
+  - action: action_revisar_gestion_educativa
+  - action: utter_consultar
+  - intent: disagree
+  - action: utter_no_enviados
+
+
+- story: Mostrar docentes de un solo curso y enviar correos
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tipo_gestion_educativa
+    entities:
+    - tipo_gestion: "sesiones de aprendizaje" 
+    - curso: "matematica"
+  - action: action_revisar_gestion_educativa
+  - action: utter_consultar
+  - intent: agree
+  - action: action_enviar_correos
+
+
+- story: Mostrar docentes de un solo curso y no enviar correos
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tipo_gestion_educativa
+    entities:
+    - tipo_gestion: "sesiones de aprendizaje" 
+    - curso: "matematica"
+  - action: action_revisar_gestion_educativa
+  - action: utter_consultar
+  - intent: disagree
+  - action: utter_no_enviados
+
+
+- story: Por defecto
+  steps:
+  - or:
+    - intent: nlu_fallback
+    - intent: agree
+    - intent: disagree
+  - action: action_custom_fallback
+
+
+- story: Campos no identificados
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tipo_gestion_educativa 
+  - action: action_custom_fallback

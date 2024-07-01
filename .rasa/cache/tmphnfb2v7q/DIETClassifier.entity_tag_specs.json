@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-curso",
+      "2": "I-curso",
+      "3": "L-curso",
+      "4": "U-curso",
+      "5": "B-tipo_gestion",
+      "6": "I-tipo_gestion",
+      "7": "L-tipo_gestion",
+      "8": "U-tipo_gestion",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-curso": 1,
+      "I-curso": 2,
+      "L-curso": 3,
+      "U-curso": 4,
+      "B-tipo_gestion": 5,
+      "I-tipo_gestion": 6,
+      "L-tipo_gestion": 7,
+      "U-tipo_gestion": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

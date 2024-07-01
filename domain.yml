@@ -1,0 +1,73 @@
+version: "3.1"
+
+intents:
+  - greet
+  - tipo_gestion_educativa
+  - agree
+  - disagree
+  - goodbye
+
+entities:
+  - tipo_gestion
+  - curso
+
+slots:
+  tipo_gestion:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: tipo_gestion
+
+  curso:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: curso
+
+  my_total_cursos:
+    type: any
+    mappings:
+      - type: custom
+
+  my_total_grados:
+    type: any
+    mappings:
+    - type: custom
+
+  name_gestion:
+    type: any
+    mappings:
+    - type: custom
+
+responses:
+  utter_greet:
+  - text: "Hola, como estas?"
+
+  utter_goodbye:
+  - text: "Hasta luego, nos vemos pronto"
+
+  utter_no_enviados:
+  - text: "No se envio correos"
+
+  utter_consultar:
+  - text: "¿Desea enviarle una notificacion a los docentes por correo?"
+    buttons:
+      - title: "Realiza los envios"
+        payload: "Si, Realiza el envio"
+      - title: "No los envies"
+        payload: "No lo envies"
+
+  utter_costum:
+  - text: "Por defecto"
+
+
+
+
+actions:
+  - action_revisar_gestion_educativa
+  - action_custom_fallback
+  - action_enviar_correos
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

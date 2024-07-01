@@ -1,0 +1,9 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taS2NhYA6dwbhQ==": "utter_greet",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohvSg1taSWgBmlJSWpRfEQpbhMiAUAQvc0lw==": "action_listen",
+    "eJydjsEJwCAQBFuxgFRgKyGImEUOEhU9/cj1Hon5C/ntwDDs3mVTPWU0Yx1TDFr1OUywN7T64KLCCMOtBXk4FAayVj4DLItGZUY2U/1XWLxgStF4lFfCWZ1lalbkeAAijlV9": "utter_tipo_gestion_educativa",
+    "eJydjk0KgCAUhK/iATqBV4kQsUEelIk+3Yh3T7JtKO1m4JuftdRFFB+QlTZMl5OidKGcPiHFaw6KDNfYFBEaQ65ZlsIGgOugIzEjqI7+axi8YPKXsogPhD0ZzZT13K2P7PTGdgMn8Xyz": "action_listen"
+  }
+}
