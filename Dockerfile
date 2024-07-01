@@ -1,5 +1,5 @@
 # Utiliza la imagen oficial de Rasa como base
-FROM rasa/rasa:3.0.0
+FROM rasa/rasa:3.1
 
 # Copia todo el contenido del directorio actual al contenedor
 COPY . /app
