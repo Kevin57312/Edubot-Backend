@@ -1,4 +1,4 @@
-FROM python:3.10.11
+FROM rasa/rasa:3.6.18
 
 # Copia todo el contenido del directorio actual al contenedor
 COPY ./data /app/data
@@ -13,7 +13,6 @@ COPY ./actions/actions.py /app/actions/actions.py
 
 RUN mkdir /app/models
 
-
 # Establece el directorio de trabajo en /app
 WORKDIR /app
 
@@ -22,8 +21,8 @@ RUN pip install -r requirements.txt
 
 RUN rasa train
 
-# Expone el puerto 5005 para el servidor de Rasa
-EXPOSE 5005
+VOLUME /app
+VOLUME /app/data
+VOLUME /app/models
 
-# Comando para ejecutar el servidor de Rasa con las acciones personalizadas
-CMD ["rasa", "run","-m","/app/models","--enable-api","--cors","*","--debug" ,"--endpoints", "endpoints.yml", "--log-file", "out.log", "--debug"]
+CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug" ,"--endpoints", "endpoints.yml", "--log-file", "out.log", "--debug"]
