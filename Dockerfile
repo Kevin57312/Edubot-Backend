@@ -14,4 +14,4 @@ VOLUME /app/models
 
 EXPOSE 5005
 
-CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug", "--port","5005"]
+CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug", "--port","10000"]
