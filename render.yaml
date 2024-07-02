@@ -17,6 +17,7 @@ services:
               "source": "."
             }
           ]
+    plan: free
     healthCheckPath: /status
 
   - type: web
