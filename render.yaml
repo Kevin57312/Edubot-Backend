@@ -5,5 +5,5 @@ services:
     dockerfilePath: ./Dockerfile
     envVars:
       - key: PORT
-        value: "10000"
+        value: "5005"
     plan: free

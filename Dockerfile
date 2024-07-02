@@ -26,4 +26,4 @@ RUN rasa train
 EXPOSE 5005
 
 # Comando para ejecutar el servidor de Rasa con las acciones personalizadas
-CMD ["rasa", "run", "-m", "models", "--enable-api", "--cors", "*", "--debug"]
+CMD ["rasa", "run", "-m", "models", "--enable-api", "--cors", "*", "--host", "0.0.0.0", "--port", "5005", "--debug"]
