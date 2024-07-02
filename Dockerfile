@@ -5,11 +5,6 @@ USER root
 
 COPY ./data /app/data
 
-ADD config.yml /app/config.yml
-ADD credentials.yml /app/credentials.yml
-ADD domain.yml /app/domain.yml
-ADD endpoints.yml /app/endpoints.yml
-
 RUN  rasa train
 VOLUME /app
 VOLUME /app/data
