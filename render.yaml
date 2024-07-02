@@ -5,14 +5,5 @@ services:
     dockerfilePath: ./Dockerfile
     envVars:
       - key: PORT
-        value: "5005"
-    plan: free
-
-  - type: web
-    name: action_server
-    runtime: docker
-    dockerfilePath: ./actions/Dockerfile
-    envVars:
-      - key: PORT
-        value: "5055"
+        value: "10000"
     plan: free
