@@ -3,46 +3,16 @@ services:
     name: rasa_server
     runtime: docker
     dockerfilePath: ./Dockerfile
-    autoDeploy: true
     envVars:
       - key: PORT
         value: "5005"
-      - key: RENDER_MOUNTS
-        value: |
-          [
-            {
-              "type": "volume",
-              "name": "rasa-vol",
-              "path": "/app",
-              "source": "."
-            }
-          ]
     plan: free
-    healthCheckPath: /status
 
   - type: web
     name: action_server
     runtime: docker
     dockerfilePath: ./actions/Dockerfile
-    autoDeploy: true
     envVars:
       - key: PORT
         value: "5055"
-      - key: RENDER_MOUNTS
-        value: |
-          [
-            {
-              "type": "volume",
-              "name": "actions-vol",
-              "path": "/app/actions",
-              "source": "./actions"
-            },
-            {
-              "type": "volume",
-              "name": "data-vol",
-              "path": "/app/data",
-              "source": "./data"
-            }
-          ]
     plan: free
-    healthCheckPath: /status
