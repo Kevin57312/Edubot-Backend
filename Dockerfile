@@ -7,6 +7,7 @@ COPY credentials.yml /app/credentials.yml
 COPY config.yml /app/config.yml
 COPY domain.yml /app/domain.yml
 COPY endpoints.yml /app/endpoints.yml
+COPY requirements.txt /app/requirements.txt
 COPY ./actions/__init__.py /app/actions/__init__.py
 COPY ./actions/actions.py /app/actions/actions.py
 
