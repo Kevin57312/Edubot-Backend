@@ -1,4 +1,4 @@
-FROM rasa/rasa:3.6.18
+FROM rasa/rasa:3.7.0a1-full
 
 # Copia todo el contenido del directorio actual al contenedor
 COPY ./data /app/data
