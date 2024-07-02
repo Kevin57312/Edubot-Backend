@@ -1,31 +1,40 @@
 services:
   - type: web
-    name: rasa-server
+    name: rasa
     env: docker
     dockerfilePath: ./Dockerfile
-    buildCommand: ""
-    startCommand: "rasa run -m models --enable-api --cors \"*\" --debug"
     autoDeploy: true
+    buildCommand: ""  # Comando de construcción si es necesario
+    startCommand: "rasa run --enable-api --cors '*' --debug"  # Ajustar según tu configuración
     envVars:
-      - key: RASA_USER
-        value: root
-    volumeMounts:
-      - path: /app
-        mountPath: /app
-    ports:
-      - containerPort: 5005
+      - key: PORT
+        value: "5005"
+    mounts:
+      - type: volume
+        name: rasa-vol
+        path: /app
+        source: .
+    plan: free
+    healthCheckPath: /status
 
   - type: web
     name: action-server
     env: docker
     dockerfilePath: ./actions/Dockerfile
-    buildCommand: ""
-    startCommand: "rasa run actions"
     autoDeploy: true
-    volumeMounts:
-      - path: /actions
-        mountPath: /app/actions
-      - path: /data
-        mountPath: /app/data
-    ports:
-      - containerPort: 5055
+    buildCommand: ""  # Comando de construcción si es necesario
+    startCommand: "rasa run actions --debug"  # Ajustar según tu configuración
+    envVars:
+      - key: PORT
+        value: "5055"
+    mounts:
+      - type: volume
+        name: actions-vol
+        path: /app/actions
+        source: ./actions
+      - type: volume
+        name: data-vol
+        path: /app/data
+        source: ./data
+    plan: free
+    healthCheckPath: /status
