@@ -10,4 +10,6 @@ VOLUME /app
 VOLUME /app/data
 VOLUME /app/models
 
+EXPOSE 5005
+
 CMD ["run","-m","/app/models","--enable-api","--cors","*","--debug" ,"--endpoints", "endpoints.yml", "--log-file", "out.log", "--debug", "--port", "5005"]
