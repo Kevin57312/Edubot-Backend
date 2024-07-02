@@ -12,6 +12,7 @@ COPY ./actions/__init__.py /app/actions/__init__.py
 COPY ./actions/actions.py /app/actions/actions.py
 
 RUN mkdir /app/models
+USER root
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
