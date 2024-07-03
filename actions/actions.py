@@ -1,5 +1,5 @@
 from typing import Any, Text, Dict, List
-from Flujos_WH.Modulo1 import Buscar_Tipo_Gestion_Docentes, enviar_todos_correos, transform_to_text
+from actions.Flujos_WH.Modulo1 import Buscar_Tipo_Gestion_Docentes, enviar_todos_correos, transform_to_text
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, SlotSet

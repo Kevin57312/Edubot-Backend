@@ -1,5 +1,3 @@
-
-import pandas as pd
 from googleapiclient.http import MediaIoBaseDownload
 import io
 from PyPDF2 import PdfReader

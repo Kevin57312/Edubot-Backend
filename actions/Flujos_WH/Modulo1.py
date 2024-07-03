@@ -1,9 +1,9 @@
 import os
 
-from Drive.FileSearch import DRIVE_SERVICE, Buscar_docs_Gestion, Relacion_Docentes, indentificar_folder
-from Drive.DriveAPI_GPDocs import get_pdf_ids, read_pdf_content
-from Drive.DriveAPI_INDocs import get_folder_id
-from llm.llama.Gestion_Educativa.llm_gestion import search_docente, search_grado
+from actions.Drive.FileSearch import DRIVE_SERVICE, Buscar_docs_Gestion, Relacion_Docentes, indentificar_folder
+from actions.Drive.DriveAPI_GPDocs import get_pdf_ids, read_pdf_content
+from actions.Drive.DriveAPI_INDocs import get_folder_id
+from actions.llm.llama.Gestion_Educativa.llm_gestion import search_docente, search_grado
 
 
 import smtplib

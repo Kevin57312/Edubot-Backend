@@ -1,6 +1,5 @@
-import os
 from groq import Groq
-from llm.Utilities.utils_config import OPENAI_API_KEY, OPENAI_MODEL_NAME
+from actions.llm.Utilities.utils_config import OPENAI_API_KEY, OPENAI_MODEL_NAME
 
 def llm_llama_answer(prompt, question = "Determina lo mencionado", temperatura = 0.1) :
     """Predict using a Large Language Model."""    

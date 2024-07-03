@@ -1,5 +1,5 @@
-from llm.llama.llm_answer import llm_llama_answer
-from llm.llama.llm_prompts import questions_prompts
+from actions.llm.llama.llm_answer import llm_llama_answer
+from actions.llm.llama.llm_prompts import questions_prompts
 import re
 
 

@@ -1,4 +1,4 @@
-from llm.llama.llm_templates import TEMPLATE_DOCENTE, TEMPLATE_GRADO
+from actions.llm.llama.llm_templates import TEMPLATE_DOCENTE, TEMPLATE_GRADO
 
 class questions_prompts:
     def __init__(self,question=None):

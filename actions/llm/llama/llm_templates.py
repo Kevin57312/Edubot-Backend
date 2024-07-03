@@ -1,5 +1,5 @@
 from langchain.prompts.prompt import PromptTemplate
-from llm.Utilities.utils_prompt import _consult_docente, _consult_grado
+from actions.llm.Utilities.utils_prompt import _consult_docente, _consult_grado
 
 TEMPLATE_DOCENTE = PromptTemplate(
     input_variables=["docentes", "contenido"],

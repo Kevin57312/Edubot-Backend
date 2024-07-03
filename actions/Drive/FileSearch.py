@@ -1,11 +1,11 @@
-from Drive.DriveAPI_GPDocs import get_pdf_ids, read_pdf_content
-from Drive.DriveAPI_INDocs import get_folder_id, get_sheet_id, list_subfolders, read_google_sheet
+from actions.Drive.DriveAPI_GPDocs import get_pdf_ids, read_pdf_content
+from actions.Drive.DriveAPI_INDocs import get_folder_id, get_sheet_id, list_subfolders, read_google_sheet
 from datetime import datetime
 import pandas as pd
 
-from Drive.Google import Create_Service
+from actions.Drive.Google import Create_Service
 
-CREDENTIAL_FILE = 'credentials.json'
+CREDENTIAL_FILE = './actions/Drive/credentials.json'
 API_NAME = 'drive'
 API_VERSION = 'v3'
 SCOPES = ['https://www.googleapis.com/auth/drive']
