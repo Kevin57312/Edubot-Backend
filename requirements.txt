@@ -4,6 +4,4 @@ pandas
 PyPDF2
 langchain
 groq
-smtplib
-email
 langchain
