@@ -2,10 +2,11 @@ version: "3.1"
 
 stories:
 
+##--------- Mostrar Todos los cursos
+
 - story: Mostrar docentes de todos los cursos y enviar correos
   steps:
-  - intent: greet
-  - action: utter_greet
+  - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
     entities:
     - tipo_gestion: "sesiones de aprendizaje"
@@ -17,8 +18,7 @@ stories:
 
 - story: Mostrar docentes de todos los cursos y no enviar correos
   steps:
-  - intent: greet
-  - action: utter_greet
+  - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
     entities:
     - tipo_gestion: "sesiones de aprendizaje"
@@ -28,10 +28,11 @@ stories:
   - action: utter_no_enviados
 
 
+##--------- Mostrar Un curso especifico
+
 - story: Mostrar docentes de un solo curso y enviar correos
   steps:
-  - intent: greet
-  - action: utter_greet
+  - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
     entities:
     - tipo_gestion: "sesiones de aprendizaje" 
@@ -44,8 +45,7 @@ stories:
 
 - story: Mostrar docentes de un solo curso y no enviar correos
   steps:
-  - intent: greet
-  - action: utter_greet
+  - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
     entities:
     - tipo_gestion: "sesiones de aprendizaje" 
@@ -55,19 +55,10 @@ stories:
   - intent: disagree
   - action: utter_no_enviados
 
-
-- story: Por defecto
-  steps:
-  - or:
-    - intent: nlu_fallback
-    - intent: agree
-    - intent: disagree
-  - action: action_custom_fallback
-
+##--------- Validar especificidad del tipo de gestion
 
 - story: Campos no identificados
   steps:
-  - intent: greet
-  - action: utter_greet
+  - checkpoint: save_gestion
   - intent: tipo_gestion_educativa 
   - action: action_custom_fallback

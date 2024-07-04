@@ -6,10 +6,20 @@ intents:
   - agree
   - disagree
   - goodbye
+  - menu
+  - monitoreo_docente
+  - gestion_educativa
+  - start_survey
+  - provide_question_1
+  - provide_question_2
+  - provide_question_3
+  - provide_question_4
+  - provide_question_5
 
 entities:
   - tipo_gestion
   - curso
+  - response
 
 slots:
   tipo_gestion:
@@ -39,6 +49,47 @@ slots:
     mappings:
     - type: custom
 
+  question_1:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      conditions:
+        - active_loop: full_form
+
+  question_2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      conditions:
+        - active_loop: full_form
+
+  question_3:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      conditions:
+        - active_loop: full_form
+
+  question_4:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      conditions:
+        - active_loop: full_form
+
+  question_5:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: custom
+      conditions:
+        - active_loop: full_form
+
+
 responses:
   utter_greet:
   - text: "Hola, como estas?"
@@ -53,20 +104,61 @@ responses:
   - text: "¿Desea enviarle una notificacion a los docentes por correo?"
     buttons:
       - title: "Realiza los envios"
-        payload: "Si, Realiza el envio"
+        payload: "Si, realizalo"
       - title: "No los envies"
-        payload: "No lo envies"
+        payload: "No lo realices"
+
+  utter_menu:
+  - text: "Hola, mi nombre es Edubot 🤖!\n Tu asistente virtual que te ayudara a lidiar con tu gestion documentaria 📖.\n Elige uno de los modulos de acuerdo a tus necesidades, estare aqui para ayudarte 😇."
+    buttons:
+      - title: "Gestion Educativa"
+        payload: "Quiero realizar mi gestion educativa"
+      - title: "Monitoreo de Docentes"
+        payload: "Quiero realizar el monitoreo a los docentes"
 
   utter_costum:
   - text: "Por defecto"
 
+  utter_consultar_gestion:
+  - text: "Edubot a su servicio 🤖, especifique el tipo de gestion que desea consultar si la consulta es sobre todos los cursos."
+    buttons:
+      - title: "Sesiones de Aprendizaje"
+        payload: "¿Puedes decirme si todos los profesores ya subieron sus sesiones de aprendizaje?"
+
+      - title: "Unidades de Aprendizaje"
+        payload: "¿Puedes decirme si todos los profesores ya subieron sus unidades de aprendizaje?" 
+
+      - title: "Planificacion Anual"
+        payload: "¿Puedes decirme si todos los profesores ya subieron su planificacion anual?"
+
+  - text: "De requerir solo un curso, por favor especificalo junto al tipo de gestion a evaluar"
+
+  utter_ask_question_1:
+  - text: "¿Cómo te sientes acerca de la afirmación 1? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
+  utter_ask_question_2:
+  - text: "¿Cómo te sientes acerca de la afirmación 2? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
+  utter_ask_question_3:
+  - text: "¿Cómo te sientes acerca de la afirmación 3? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
+  utter_ask_question_4:
+  - text: "¿Cómo te sientes acerca de la afirmación 4? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
+  utter_ask_question_5:
+  - text: "¿Cómo te sientes acerca de la afirmación 5? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
 
 
+forms:
+  full_form:
+    required_slots:
+      - question_1
+      - question_2
+      - question_3
+      - question_4
+      - question_5
 
 actions:
   - action_revisar_gestion_educativa
   - action_custom_fallback
   - action_enviar_correos
+  - validate_full_form
 
 session_config:
   session_expiration_time: 60

@@ -1,0 +1,52 @@
+version: "3.1"
+
+
+stories:
+#  - story: User rates and modifies scores
+#    steps:
+#      - checkpoint: save_monitoreo
+#      - action: rating_form
+#      - active_loop: rating_form
+#      - intent: request_change
+#      - action: utter_ask_change_rating
+#      - intent: agree
+#      - action: action_deactivate_loop
+#      - active_loop: null
+#      - action: utter_rating_submitted
+
+- story: start survey
+  steps:
+  - intent: start_survey
+  - action: full_form
+  - active_loop: full_form
+  - slot_was_set:
+    - requested_slot: question_1
+  - intent: provide_question_1
+  - action: full_form
+  - slot_was_set:
+    - question_1
+  - slot_was_set:
+    - requested_slot: question_2
+  - intent: provide_question_2
+  - action: full_form
+  - slot_was_set:
+    - question_2
+  - slot_was_set:
+    - requested_slot: question_3
+  - intent: provide_question_3
+  - action: full_form
+  - slot_was_set:
+    - question_3
+  - slot_was_set:
+    - requested_slot: question_4
+  - intent: provide_question_4
+  - action: full_form
+  - slot_was_set:
+    - question_4
+  - slot_was_set:
+    - requested_slot: question_5
+  - intent: provide_question_5
+  - action: full_form
+  - slot_was_set:
+    - question_5
+  - active_loop: null

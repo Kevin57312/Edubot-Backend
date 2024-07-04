@@ -14,6 +14,16 @@ nlu:
     - buenas tardes
     - buenas noches
 
+- intent: menu
+  examples: |
+    - Redirigeme al menu principal
+    - Quiero ir al menu
+    - Menu
+    - Regresame al menu
+    - Menu principal
+    - Vuelve al menu principal
+    - Quiero redirigirme al menu    
+
 
 - intent: agree
   examples: |
@@ -27,6 +37,7 @@ nlu:
     - adelante
     - por favor
     - si, por favor
+    - si, realizalo
 
 - intent: disagree
   examples: |
@@ -39,6 +50,32 @@ nlu:
     - no procedas
     - no es necesario
     - de ninguna manera
+    - no, gracias
+    - no lo realices
+
+- intent: gestion_educativa
+  examples: |
+    - Quiero realizar mi gestion educativa
+    - gestion educativa
+    - Me gustaria realizar la gestion educativa
+    - Debo realizar la gestion educativa
+    - Comenzemos con la gestion educativa
+    - Empecemos con la gestion educativa
+    - Vamos a inicializar con la gestion educativa
+    - Comenzaremos con la gestion educativa
+    - A realizar la gestion educativa
+
+- intent: monitoreo_docente
+  examples: |
+    - Quiero realizar el monitoreo de docentes
+    - monitoreo de docentes
+    - Me gustaria realizar el monitoreo de docentes
+    - Debo realizar el monitoreo de docentes
+    - Comenzemos con el monitoreo de docentes
+    - Empecemos con el monitoreo de docentes
+    - Vamos a inicializar con el monitoreo de docentes
+    - Comenzaremos con el monitoreo de docentes
+    - A realizar el monitoreo de docentes
 
 - intent: tipo_gestion_educativa
   examples: |
@@ -79,3 +116,20 @@ nlu:
 - synonym: desarrollo personas ciudadania y civica
   examples: |
     - dpcc
+
+
+- intent: start_survey
+  examples: |
+    - Quiero empezar la encuesta
+    - Empezar encuesta
+    - Iniciar encuesta
+    - Quiero realizar una encuesta
+
+
+- intent: provide_answer
+  examples: |
+    - Nota de [1](response)
+    - Ponle nota de [2](response)
+    - [3](response)
+    - Colocale [4](response)
+    - Asignale [5](response)

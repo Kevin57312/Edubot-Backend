@@ -1,0 +1,27 @@
+version: "3.1"
+
+stories:
+
+- story: Menu Principal
+  steps:
+  - or:
+    - intent: menu
+    - intent: greet
+  - action: utter_menu
+  - checkpoint: save_option
+
+
+- story: Redirigir a gestion educativa
+  steps:
+  - checkpoint: save_option
+  - intent: gestion_educativa
+  - action: utter_consultar_gestion
+  - checkpoint: save_gestion
+
+
+#- story: Redirigir a monitoreo
+#  steps:
+#  - checkpoint: save_option
+#  - intent: survey
+#  - action: survey_form_action
+#  - active_loop: survey_form

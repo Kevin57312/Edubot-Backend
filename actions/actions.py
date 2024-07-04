@@ -1,9 +1,13 @@
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Union
 from actions.Flujos_WH.Modulo1 import Buscar_Tipo_Gestion_Docentes, enviar_todos_correos, transform_to_text
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted, SlotSet
 from fuzzywuzzy import process
+
+from rasa_sdk import FormValidationAction
+
+
 
 class RevisarGestionEducativa(Action):
 
@@ -100,3 +104,39 @@ class ActionEnviarCorreos(Action):
         dispatcher.utter_message("Correos enviados! 😊")
 
         return reset_events
+    
+
+class ValidateFullForm(FormValidationAction):
+
+    def name(self) -> str:
+        return "validate_full_form"
+
+    def validate_question_1(
+        self,
+        value: str,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[str, Any],
+    ) -> Dict[str, Any]:
+        
+        print("valor 1",value)
+        if value.lower() in ["strongly agree", "agree", "neutral", "disagree", "strongly disagree"]:
+            return {"question_1": value}
+        else:
+            dispatcher.utter_message(text="Please select a valid response.")
+            return {"question_1": None}
+
+    def validate_question(
+        self,
+        value: str,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[str, Any],
+    ) -> Dict[str, Any]:
+        
+        
+        if value.lower() in ["strongly agree", "agree", "neutral", "disagree", "strongly disagree"]:
+            return {"question_2": value}
+        else:
+            dispatcher.utter_message(text="Please select a valid response.")
+            return {"question_2": None}
