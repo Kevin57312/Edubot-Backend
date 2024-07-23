@@ -19,9 +19,9 @@ stories:
   - checkpoint: save_gestion
 
 
-#- story: Redirigir a monitoreo
-#  steps:
-#  - checkpoint: save_option
-#  - intent: survey
-#  - action: survey_form_action
-#  - active_loop: survey_form
+- story: Redirigir a monitoreo
+  steps:
+  - checkpoint: save_option
+  - intent: monitoreo_docente
+  - action: datos_form
+  - checkpoint: save_monitoreo

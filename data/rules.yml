@@ -12,7 +12,67 @@ rules:
   - intent: menu
   - action: utter_menu
 
-- rule: Fallback cuando no se identifique una pregunta
+- rule: Submit form
+  condition:
+  - active_loop: full_form
   steps:
-  - intent: nlu_fallback
-  - action: action_custom_fallback
+  - action: full_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_test
+
+- rule: Active form
+  steps:
+  - intent: monitoreo_docente
+  - action: datos_form
+  - active_loop: datos_form
+
+- rule: Sumbit datos forms
+  condition:
+  - active_loop: datos_form
+  steps:
+  - action: datos_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: plan_curricular_form
+  - active_loop: plan_curricular_form
+
+- rule: Sumbit plan curricular forms
+  condition:
+  - active_loop: plan_curricular_form
+  steps:
+  - action: plan_curricular_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: conduccion_mediacion_form
+  - active_loop: conduccion_mediacion_form
+
+- rule: Sumbit conduccion medicacion forms
+  condition:
+  - active_loop: conduccion_mediacion_form
+  steps:
+  - action: conduccion_mediacion_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: retroalimentacion_evaluacion_form
+  - active_loop: retroalimentacion_evaluacion_form
+
+
+- rule: Sumbit retroalimentacion evaluacion forms
+  condition:
+  - active_loop: retroalimentacion_evaluacion_form
+  steps:
+  - action: retroalimentacion_evaluacion_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_enviar_formulario
+
+#- rule: Fallback cuando no se identifique una pregunta
+#  steps:
+#  - intent: nlu_fallback
+#  - action: action_custom_fallback

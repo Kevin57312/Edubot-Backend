@@ -60,3 +60,31 @@ def list_subfolders(service, folder_id):
     results = service.files().list(q=query, fields='files(id, name)').execute()
     subfolders = [folder.get('name') for folder in results.get('files', [])]
     return subfolders
+
+
+def create_folder(service, folder_name, parent_folder_id=None):
+    file_metadata = {
+        'name': folder_name,
+        'mimeType': 'application/vnd.google-apps.folder'
+    }
+    if parent_folder_id:
+        file_metadata['parents'] = [parent_folder_id]
+    
+    folder = service.files().create(body=file_metadata, fields='id').execute()
+    print(f'Folder ID: {folder.get("id")}')
+    return folder.get('id')
+
+def copy_file_to_folder(service, file_id, folder_id, new_name):
+    copied_file = {
+        'name': new_name,
+        'parents': [folder_id]
+    }
+    copied_file = service.files().copy(fileId=file_id, body=copied_file).execute()
+    print(f'Copied File ID: {copied_file.get("id")}')
+    return copied_file.get('id')
+
+def find_file_in_folder(service, folder_id, file_name):
+    query = f"'{folder_id}' in parents and name='{file_name}' and trashed=false"
+    results = service.files().list(q=query, fields='files(id, name)').execute()
+    items = results.get('id', [])
+    return items

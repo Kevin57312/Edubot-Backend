@@ -10,16 +10,10 @@ intents:
   - monitoreo_docente
   - gestion_educativa
   - start_survey
-  - provide_question_1
-  - provide_question_2
-  - provide_question_3
-  - provide_question_4
-  - provide_question_5
 
 entities:
   - tipo_gestion
   - curso
-  - response
 
 slots:
   tipo_gestion:
@@ -53,42 +47,217 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-    - type: custom
+    - type: from_text
       conditions:
-        - active_loop: full_form
+      - active_loop: full_form
+        requested_slot: question_1
 
   question_2:
     type: text
     influence_conversation: true
     mappings:
-    - type: custom
+    - type: from_text
       conditions:
-        - active_loop: full_form
+      - active_loop: full_form
+        requested_slot: question_2
 
   question_3:
     type: text
     influence_conversation: true
     mappings:
-    - type: custom
+    - type: from_text
       conditions:
-        - active_loop: full_form
+      - active_loop: full_form
+        requested_slot: question_3
 
   question_4:
     type: text
     influence_conversation: true
     mappings:
-    - type: custom
+    - type: from_text
       conditions:
-        - active_loop: full_form
+      - active_loop: full_form
+        requested_slot: question_4
 
   question_5:
     type: text
     influence_conversation: true
     mappings:
-    - type: custom
+    - type: from_text
       conditions:
-        - active_loop: full_form
+      - active_loop: full_form
+        requested_slot: question_5
 
+  pc_question_1:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: plan_curricular_form
+        requested_slot: pc_question_1
+
+  pc_question_2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: plan_curricular_form
+        requested_slot: pc_question_2
+
+  pc_question_3:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: plan_curricular_form
+        requested_slot: pc_question_3
+  
+  pc_question_4:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: plan_curricular_form
+        requested_slot: pc_question_4
+
+  pc_question_5:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: plan_curricular_form
+        requested_slot: pc_question_5
+
+  cm_question_1:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_1
+
+  cm_question_2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_2
+
+  cm_question_3:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_3
+  
+  cm_question_4:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_4
+
+  cm_question_5:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_5
+  
+  cm_question_6:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_6
+  
+  cm_question_7:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: conduccion_mediacion_form
+        requested_slot: cm_question_7
+
+  re_question_1:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: retroalimentacion_evaluacion_form
+        requested_slot: re_question_1
+
+  re_question_2:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: retroalimentacion_evaluacion_form
+        requested_slot: re_question_2
+
+  re_question_3:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: retroalimentacion_evaluacion_form
+        requested_slot: re_question_3
+
+  re_question_4:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: retroalimentacion_evaluacion_form
+        requested_slot: re_question_4
+
+  docente:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: datos_form
+        requested_slot: docente
+
+  sesion:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: datos_form
+        requested_slot: sesion
+
+  gradoysec:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: datos_form
+        requested_slot: gradoysec
 
 responses:
   utter_greet:
@@ -120,7 +289,7 @@ responses:
   - text: "Por defecto"
 
   utter_consultar_gestion:
-  - text: "Edubot a su servicio 🤖, especifique el tipo de gestion que desea consultar si la consulta es sobre todos los cursos."
+  - text: "Edubot a su servicio 🤖, especifique el tipo de gestion que desea consultar si la consulta es sobre todos los cursos.\nDe requerir solo un curso, por favor especificalo junto al tipo de gestion a evaluar"
     buttons:
       - title: "Sesiones de Aprendizaje"
         payload: "¿Puedes decirme si todos los profesores ya subieron sus sesiones de aprendizaje?"
@@ -130,8 +299,6 @@ responses:
 
       - title: "Planificacion Anual"
         payload: "¿Puedes decirme si todos los profesores ya subieron su planificacion anual?"
-
-  - text: "De requerir solo un curso, por favor especificalo junto al tipo de gestion a evaluar"
 
   utter_ask_question_1:
   - text: "¿Cómo te sientes acerca de la afirmación 1? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
@@ -144,8 +311,214 @@ responses:
   utter_ask_question_5:
   - text: "¿Cómo te sientes acerca de la afirmación 5? (totalmente de acuerdo, de acuerdo, neutral, en desacuerdo, totalmente en desacuerdo)"
 
+  
+  utter_ask_docente:
+  - text: "Proporcioname el nombre del docente que desee evaluar"
+  utter_ask_sesion:
+  - text: "Proporcioname el nombre de la sesion a evaluar"
+  utter_ask_gradoysec:
+  - text: "Proporcioname el grado y seccion en el siguiente formato: \n- [Numero de Grado][Letra de la seccion] --> Ejm: '4B'"
+
+
+  utter_ask_pc_question_1:
+  - text: "¿Los propósitos de aprendizaje en la unidad didáctica están alineados con las necesidades identificadas de los estudiantes?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_pc_question_2:
+  - text: "¿La planificación de cada sesión considera ajustes para atender la diversidad en el aula y, en su caso, adaptaciones curriculares?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_pc_question_3:
+  - text: "¿Los criterios de evaluación están diseñados de manera coherente con los propósitos de aprendizaje y abarcan todas las capacidades de la competencia?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_pc_question_4:
+  - text: "¿La secuencia de actividades en cada sesión facilita la construcción de aprendizajes por parte de los estudiantes y promueve su participación activa?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_pc_question_5:
+  - text: "¿Los instrumentos de evaluación utilizados permiten registrar el nivel de desarrollo de la competencia y proporcionan un seguimiento efectivo de los aprendizajes?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+
+
+
+
+  utter_ask_cm_question_1:
+  - text: "¿El docente comunica claramente el propósito de aprendizaje, las instrucciones del producto/actuación y los criterios de evaluación de manera que los estudiantes comprendan su importancia?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_cm_question_2:
+  - text: "¿Se desarrollan actividades y se fomentan interacciones que movilicen todas las capacidades de los estudiantes para el desarrollo de la competencia?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_cm_question_3:
+  - text: "¿El docente promueve habilidades de pensamiento de orden superior y utiliza los errores como oportunidades de aprendizaje?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_cm_question_4:
+  - text: "¿Demuestra el docente un dominio disciplinar sobre las competencias enseñadas, desafiando a los estudiantes de manera constructiva?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_cm_question_5:
+  - text: "¿Utiliza el docente una variedad de estrategias y recursos adecuados al propósito de aprendizaje, adaptándolos según las características y necesidades individuales de los estudiantes?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_cm_question_6:
+  - text: "¿Promueve el docente el involucramiento y la participación activa de todos los estudiantes durante la sesión de aprendizaje?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_cm_question_7:
+  - text: "¿Genera el docente un ambiente de respeto, transmitiendo calidez y respondiendo de manera comprensiva a las necesidades afectivas o físicas de los estudiantes?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+
+
+
+
+
+
+  
+  utter_ask_re_question_1:
+  - text: "¿El docente monitorea activamente el progreso y las dificultades de los estudiantes, proporcionando apoyo continuo y atendiendo sus consultas y necesidades de aprendizaje en relación con el propósito establecido?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_re_question_2:
+  - text: "¿Identifica el docente los logros y las necesidades de aprendizaje de los estudiantes basándose en el análisis de las evidencias como producciones y actuaciones, en relación con los criterios de evaluación establecidos?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_re_question_3:
+  - text: "¿Brinda el docente retroalimentación formativa de manera oportuna y prioriza la atención en las necesidades de aprendizaje identificadas, especialmente enfocándose en los estudiantes con mayores necesidades?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+  utter_ask_re_question_4:
+  - text: "¿Registra el docente los logros y dificultades identificados en los estudiantes de manera descriptiva y alineada con las competencias de la sesión de aprendizaje, utilizando instrumentos de seguimiento adecuados para documentar la información recogida durante las sesiones?"
+    buttons:
+      - title: "1"
+        payload: "Asignale el valor 1"
+      - title: "2"
+        payload: "Asignale el valor 2"
+      - title: "3"
+        payload: "Asignale el valor 3"
+      - title: "4"
+        payload: "Asignale el valor 4"
+
+  utter_test:
+  - text: "Estoy testeando"
 
 forms:
+
+  datos_form:
+    required_slots:
+      - docente
+      - gradoysec
+      - sesion
+
   full_form:
     required_slots:
       - question_1
@@ -154,11 +527,43 @@ forms:
       - question_4
       - question_5
 
+  plan_curricular_form:
+    required_slots:
+      - pc_question_1
+      - pc_question_2
+      - pc_question_3
+      - pc_question_4
+      - pc_question_5
+
+  conduccion_mediacion_form:
+    required_slots:
+      - cm_question_1
+      - cm_question_2
+      - cm_question_3
+      - cm_question_4
+      - cm_question_5
+      - cm_question_6
+      - cm_question_7
+
+  retroalimentacion_evaluacion_form:
+    required_slots:
+      - re_question_1
+      - re_question_2
+      - re_question_3
+      - re_question_4
+
+  
+
 actions:
   - action_revisar_gestion_educativa
   - action_custom_fallback
   - action_enviar_correos
+  - action_enviar_formulario
   - validate_full_form
+  - validate_plan_curricular_form
+  - validate_conduccion_mediacion_form
+  - validate_retroalimentacion_evaluacion_form
+  - validate_datos_form
 
 session_config:
   session_expiration_time: 60

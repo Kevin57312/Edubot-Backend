@@ -2,6 +2,7 @@ version: "3.1"
 
 nlu:
 
+
 - intent: greet
   examples: |
     - hola
@@ -23,7 +24,6 @@ nlu:
     - Menu principal
     - Vuelve al menu principal
     - Quiero redirigirme al menu    
-
 
 - intent: agree
   examples: |
@@ -100,7 +100,6 @@ nlu:
     - Dime si ya se subieron todas las [sesiones de aprendizaje](tipo_gestion) del curso de [educacion fisica](curso)
     - ¿Puedes decirme si todos los profesores ya subieron sus [sesiones de aprendizaje](tipo_gestion)? del curso de [educacion fisica](curso)
 
-
 - synonym: ciencia y tecnologia
   examples: |
     - CyT
@@ -117,19 +116,9 @@ nlu:
   examples: |
     - dpcc
 
-
 - intent: start_survey
   examples: |
     - Quiero empezar la encuesta
     - Empezar encuesta
     - Iniciar encuesta
     - Quiero realizar una encuesta
-
-
-- intent: provide_answer
-  examples: |
-    - Nota de [1](response)
-    - Ponle nota de [2](response)
-    - [3](response)
-    - Colocale [4](response)
-    - Asignale [5](response)

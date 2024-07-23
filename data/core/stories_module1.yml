@@ -8,8 +8,8 @@ stories:
   steps:
   - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
-    entities:
-    - tipo_gestion: "sesiones de aprendizaje"
+  - slot_was_set:
+    - tipo_gestion
   - action: action_revisar_gestion_educativa
   - action: utter_consultar
   - intent: agree
@@ -20,8 +20,8 @@ stories:
   steps:
   - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
-    entities:
-    - tipo_gestion: "sesiones de aprendizaje"
+  - slot_was_set:
+    - tipo_gestion
   - action: action_revisar_gestion_educativa
   - action: utter_consultar
   - intent: disagree
@@ -34,9 +34,9 @@ stories:
   steps:
   - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
-    entities:
-    - tipo_gestion: "sesiones de aprendizaje" 
-    - curso: "matematica"
+  - slot_was_set:
+    - tipo_gestion
+    - curso
   - action: action_revisar_gestion_educativa
   - action: utter_consultar
   - intent: agree
@@ -47,18 +47,19 @@ stories:
   steps:
   - checkpoint: save_gestion
   - intent: tipo_gestion_educativa
-    entities:
-    - tipo_gestion: "sesiones de aprendizaje" 
-    - curso: "matematica"
+  - slot_was_set:
+    - tipo_gestion
+    - curso
   - action: action_revisar_gestion_educativa
   - action: utter_consultar
   - intent: disagree
   - action: utter_no_enviados
 
 ##--------- Validar especificidad del tipo de gestion
-
 - story: Campos no identificados
   steps:
   - checkpoint: save_gestion
   - intent: tipo_gestion_educativa 
+  - slot_was_set:
+    - tipo_gestion: null
   - action: action_custom_fallback
