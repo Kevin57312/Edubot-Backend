@@ -66,9 +66,8 @@ Before deploying EduBot, ensure you have the following:
 
 3. Build and run the Docker containers
 
-   
-  ```bash
-  docker-compose up --build
-  ```
+    ```bash
+    docker-compose up --build
+    ```
+    
 4. Access the EduBot front end through your browser at http://localhost:5005.
-
