@@ -5,6 +5,7 @@
 EduBot is a virtual assistant designed to enhance the management processes within educational institutions. Built on the robust Rasa framework, EduBot leverages advanced Natural Language Processing (NLP) techniques. This repository contains the codebase.
 
 ## Architecture
+![Arquitectura de EduBot](images/arquitectura_edubot.png)
 
 The architecture of EduBot is designed to ensure scalability, reliability, and efficiency in handling educational management tasks. The key components of the system are as follows:
 
