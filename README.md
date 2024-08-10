@@ -65,6 +65,7 @@ Before deploying EduBot, ensure you have the following:
 2. Set up environment variables and configure the docker-compose.yml file with your API keys and credentials.
 
 3. Build and run the Docker containers:
+   
   ```bash
   docker-compose up --build
 
