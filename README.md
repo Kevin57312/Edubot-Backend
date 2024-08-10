@@ -60,4 +60,13 @@ Before deploying EduBot, ensure you have the following:
 
    ```bash
    git clone https://github.com/yourusername/edubot.git
-   cd edubot```
+   cd edubot
+
+2. Set up environment variables and configure the docker-compose.yml file with your API keys and credentials.
+
+3. Build and run the Docker containers:
+  ```bash
+  docker-compose up --build
+
+4. Access the EduBot front end through your browser at http://localhost:5005.
+
