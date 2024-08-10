@@ -10,7 +10,7 @@ EduBot is a virtual assistant designed to enhance the management processes withi
 
 The architecture of EduBot is designed to ensure scalability, reliability, and efficiency in handling educational management tasks. The key components of the system are as follows:
 
-- **Front End:** A responsive web interface accessible from both desktop and mobile devices. This interface allows users to interact with EduBot and access its features seamlessly. The front end is containerized and deployed in the cloud to ensure scalability and high availability. Enlace: https://github.com/nabia1827/Edubot_app
+- **Front End:** A responsive web interface accessible from both desktop and mobile devices. This interface allows users to interact with EduBot and access its features seamlessly. The front end is containerized and deployed in the cloud to ensure scalability and high availability. Attachment: https://github.com/nabia1827/Edubot_app
 
 - **Rasa Server:** The core of EduBot, hosted in a cloud-based container. It comprises two primary components:
   - **Dialogue Policies:** Define the conversational flow, guiding EduBot's responses based on user input and dialogue context.
